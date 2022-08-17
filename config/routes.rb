@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :gardens
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # GET localhost:3000/gardens/..........
 end
