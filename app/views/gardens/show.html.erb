@@ -1,0 +1,26 @@
+<div class="garden-wrapper">
+  <div class="banner d-flex justify-content-center align-items-center" 
+    style="background-image: url(<%= @garden.banner_url %>); backround-size: cover;">
+    <h1 class="text-white"><%= @garden.name %></h1>
+  </div>
+</div>
+<h3 class="mt-3"><%= @garden.name %> Plants</h3>
+
+<div class="row m-0">
+  <% @plants.each do |plant| %>
+    <div class="col-6 col-lg-4 plant-card row m-0 flex-column justify-content-between py-1" 
+      style="background-image: url(<%= plant.banner_url %>); background-size: cover;">
+      <h4 class="text-white"><%= plant.name %></h4>
+      <div class="row w-100 justify-content-end">
+        <%= link_to 'Delete', plant_path(plant),
+          data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' },
+          class: 'text-danger font-weight-bold' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="w-100 d-flex justify-content-between">
+  <%= link_to 'Add a plant', new_garden_plant_path(@garden) %>
+  <%= link_to 'See all gardens', gardens_path %>
+</div>

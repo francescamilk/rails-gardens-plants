@@ -1,0 +1,8 @@
+<h1>Add a plant for <%= @garden.name %></h1>
+<%= simple_form_for [@garden, @plant] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :banner_url %>
+  <%= f.submit %>
+<% end %>
+
+<%# /gardens/:garden_id/plants %>
