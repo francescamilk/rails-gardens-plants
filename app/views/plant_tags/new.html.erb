@@ -1,0 +1,5 @@
+<h1>Link a Tag to <%= @plant.name %></h1>
+<%= simple_form_for [@garden, @plant, @plant_tag] do |f| %>
+  <%= f.input :tag, collection: Tag.all, input_html: {multiple: true, class: "multiple-select"}, include_hidden: false %>  
+  <%= f.submit %>
+<% end %>

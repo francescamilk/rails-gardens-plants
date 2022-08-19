@@ -1,5 +1,6 @@
 puts 'Clearing the db...'
 Garden.destroy_all
+Tag.destroy_all
 
 puts 'Creating gardens...'
 italian_garden = Garden.new(
@@ -56,5 +57,12 @@ tulip = Plant.new(
   garden: dutch_garden
 )
 tulip.save!
+
+tag_names = ['red', 'blue', 'rose', 'plant-only', 'outdoor', 'rare', 'tropical', 'summer']
+tag_names.each do |tag_name|
+  Tag.create(name: tag_name)
+end
+
+puts "Created #{Tag.count} tags"
 
 puts 'Done!'
